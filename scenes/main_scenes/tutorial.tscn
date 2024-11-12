@@ -1,0 +1,157 @@
+[gd_scene load_steps=6 format=3 uid="uid://dj6ixa3eb1jes"]
+
+[ext_resource type="Script" path="res://scripts/main_menu/tutorial.gd" id="1_ee7no"]
+[ext_resource type="Texture2D" uid="uid://d0sn6rphe7hvb" path="res://images/enemy_truck.png" id="2_k2370"]
+[ext_resource type="Texture2D" uid="uid://cktx38m6rl18v" path="res://images/tree.png" id="3_gdo7k"]
+[ext_resource type="Texture2D" uid="uid://c0n87sm0wtkt3" path="res://images/mobile_base_attachments.png" id="4_f510w"]
+[ext_resource type="Texture2D" uid="uid://b0h728hay2s4k" path="res://images/movable_items.png" id="5_rkes7"]
+
+[node name="Tutorial" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ee7no")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Maker" type="Sprite2D" parent="."]
+position = Vector2(295, 187)
+scale = Vector2(2, 2)
+texture = ExtResource("2_k2370")
+region_enabled = true
+region_rect = Rect2(64, 0, 64, 64)
+
+[node name="Maker2" type="Sprite2D" parent="."]
+position = Vector2(63, 193)
+scale = Vector2(2, 2)
+texture = ExtResource("3_gdo7k")
+region_enabled = true
+region_rect = Rect2(0, 0, 64, 64)
+
+[node name="Maker3" type="Sprite2D" parent="."]
+position = Vector2(183, 269)
+rotation = -1.5708
+scale = Vector2(4, 4)
+texture = ExtResource("4_f510w")
+region_enabled = true
+region_rect = Rect2(0, 32, 32, 32)
+
+[node name="Maker4" type="Sprite2D" parent="."]
+position = Vector2(86, 464)
+scale = Vector2(8, 8)
+texture = ExtResource("5_rkes7")
+region_enabled = true
+region_rect = Rect2(0, 12, 12, 12)
+
+[node name="Maker5" type="Sprite2D" parent="."]
+position = Vector2(304, 465)
+scale = Vector2(8, 8)
+texture = ExtResource("5_rkes7")
+region_enabled = true
+region_rect = Rect2(12, 12, 12, 12)
+
+[node name="Maker8" type="Sprite2D" parent="."]
+position = Vector2(189, 464)
+scale = Vector2(8, 8)
+texture = ExtResource("5_rkes7")
+region_enabled = true
+region_rect = Rect2(0, 24, 12, 12)
+
+[node name="Maker6" type="Sprite2D" parent="."]
+position = Vector2(636, 197)
+scale = Vector2(2, 2)
+texture = ExtResource("2_k2370")
+region_enabled = true
+region_rect = Rect2(0, 0, 64, 64)
+
+[node name="Maker7" type="Sprite2D" parent="."]
+position = Vector2(824, 201)
+rotation = 3.14159
+scale = Vector2(4, 4)
+texture = ExtResource("4_f510w")
+region_enabled = true
+region_rect = Rect2(0, 0, 32, 32)
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 106.0
+offset_top = 12.0
+offset_right = 860.0
+offset_bottom = 114.0
+theme_override_font_sizes/font_size = 64
+text = "How to play"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="."]
+layout_mode = 0
+offset_left = 9.0
+offset_top = 72.0
+offset_right = 370.0
+offset_bottom = 225.0
+theme_override_font_sizes/font_size = 32
+text = "Collect resources using your trusty grabbers!"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="Label4" type="Label" parent="."]
+layout_mode = 0
+offset_left = 12.0
+offset_top = 350.0
+offset_right = 373.0
+offset_bottom = 503.0
+theme_override_font_sizes/font_size = 32
+text = "Turn wood and metal into fuel and bullets"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="Label5" type="Label" parent="."]
+layout_mode = 0
+offset_left = 555.0
+offset_top = 72.0
+offset_right = 954.0
+offset_bottom = 225.0
+theme_override_font_sizes/font_size = 32
+text = "Take down enemy vehicles before they take down you!"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="Label7" type="Label" parent="."]
+layout_mode = 0
+offset_left = 554.0
+offset_top = 264.0
+offset_right = 953.0
+offset_bottom = 330.0
+theme_override_font_sizes/font_size = 24
+text = "CAUTION: Enemies become more aggressive if you run out of fuel!"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="Label6" type="Label" parent="."]
+layout_mode = 0
+offset_left = 536.0
+offset_top = 351.0
+offset_right = 951.0
+offset_bottom = 504.0
+theme_override_font_sizes/font_size = 32
+text = "Team work makes the dream work! You will need to work together to successfully meet your maker! Bring up to 16 players into the action!"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="Label3" type="Label" parent="."]
+layout_mode = 0
+offset_left = 427.0
+offset_top = 514.0
+offset_right = 952.0
+offset_bottom = 534.0
+theme_override_font_sizes/font_size = 24
+text = "Press Enter or Start to return to the main menu"

@@ -1,0 +1,79 @@
+[gd_scene load_steps=4 format=3 uid="uid://ler0mkf48gp6"]
+
+[ext_resource type="Script" path="res://scripts/main_menu/MainMenu.gd" id="1_o3hbs"]
+[ext_resource type="PackedScene" uid="uid://da0cu7hv1uq71" path="res://scenes/objects/playerSelector.tscn" id="2_ig006"]
+[ext_resource type="PackedScene" uid="uid://0ak83s6pdkjy" path="res://scenes/objects/play_button.tscn" id="4_ywqqg"]
+
+[node name="Main Menu" type="Control" node_paths=PackedStringArray("playerSelectorGrid", "playButton", "storyButton", "tutorialButton")]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 960.0
+offset_bottom = 540.0
+script = ExtResource("1_o3hbs")
+playerSelectorPrefab = ExtResource("2_ig006")
+playerSelectorGrid = NodePath("PlayerSelectors")
+playButton = NodePath("PlayButton")
+storyButton = NodePath("StoryButtonBacking/StoryButton")
+tutorialButton = NodePath("TutorialButtonBacking/Tutorial")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 960.0
+offset_bottom = 540.0
+color = Color(0, 0, 0, 1)
+
+[node name="Title Text" type="Label" parent="."]
+layout_mode = 0
+offset_right = 960.0
+offset_bottom = 100.0
+theme_override_font_sizes/font_size = 48
+text = "Parallel Processing"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PlayerSelectors" type="GridContainer" parent="."]
+layout_mode = 0
+anchor_top = 0.278
+anchor_right = 1.0
+anchor_bottom = 0.722
+offset_top = -0.12001
+offset_bottom = 0.119965
+theme_override_constants/h_separation = 0
+theme_override_constants/v_separation = 0
+columns = 8
+
+[node name="PlayButton" parent="." instance=ExtResource("4_ywqqg")]
+offset_top = 434.0
+offset_bottom = 534.0
+
+[node name="StoryButtonBacking" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = 13.0
+offset_top = 480.0
+offset_right = 150.0
+offset_bottom = 531.0
+
+[node name="StoryButton" type="Button" parent="StoryButtonBacking"]
+layout_mode = 0
+offset_left = 3.0
+offset_top = 3.0
+offset_right = 133.0
+offset_bottom = 48.0
+theme_override_font_sizes/font_size = 32
+text = "Story"
+
+[node name="TutorialButtonBacking" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = 753.0
+offset_top = 478.0
+offset_right = 951.0
+offset_bottom = 529.0
+
+[node name="Tutorial" type="Button" parent="TutorialButtonBacking"]
+layout_mode = 0
+offset_left = 4.0
+offset_top = 3.0
+offset_right = 193.0
+offset_bottom = 48.0
+theme_override_font_sizes/font_size = 32
+text = "How to Play"

@@ -1,0 +1,127 @@
+[gd_scene load_steps=13 format=3 uid="uid://c1u5p3vcfalw6"]
+
+[ext_resource type="Texture2D" uid="uid://duvpmx7aubb4c" path="res://images/road_background.png" id="1_7hqbw"]
+[ext_resource type="Script" path="res://scripts/on_the_road/GameManager.gd" id="1_aiw34"]
+[ext_resource type="PackedScene" uid="uid://bcpnh26a5wirk" path="res://scenes/objects/mobile_base.tscn" id="2_iue6p"]
+[ext_resource type="PackedScene" uid="uid://dlmttb57pixg5" path="res://scenes/objects/player_UI.tscn" id="3_an5am"]
+[ext_resource type="PackedScene" uid="uid://dpsexcrpbxpyr" path="res://scenes/objects/truck.tscn" id="4_lxnh2"]
+[ext_resource type="PackedScene" uid="uid://bqqr16bvtnhpb" path="res://scenes/objects/tree.tscn" id="4_ywd3r"]
+[ext_resource type="AudioStream" uid="uid://cvdkhur0tjy6" path="res://audio/SE/honk_honk.mp3" id="7_wtu4l"]
+[ext_resource type="AudioStream" uid="uid://dj88eatd58irq" path="res://audio/SE/Cyberpunk Moonlight Sonata v2.mp3" id="8_xrl5w"]
+
+[sub_resource type="Gradient" id="Gradient_tdcjm"]
+offsets = PackedFloat32Array(1)
+colors = PackedColorArray(1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_jwmlm"]
+gradient = SubResource("Gradient_tdcjm")
+width = 200
+height = 32
+
+[sub_resource type="Gradient" id="Gradient_4yc12"]
+offsets = PackedFloat32Array(1)
+colors = PackedColorArray(1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_ow4ar"]
+gradient = SubResource("Gradient_4yc12")
+width = 200
+height = 32
+
+[node name="MainGame" type="Node2D" node_paths=PackedStringArray("parallaxBackground", "mobileBase", "healthBar", "distanceRemainingLabel", "treesNode", "trucksNode", "bulletsNode", "honkHonk", "bgm")]
+script = ExtResource("1_aiw34")
+parallaxBackground = NodePath("ParallaxBackground")
+playerUIPrefab = ExtResource("3_an5am")
+mobileBase = NodePath("MobileBase")
+healthBar = NodePath("HealthUI/TextureProgressBar")
+distanceRemainingLabel = NodePath("ProgressUI/Label2")
+treesNode = NodePath("Trees")
+treePrefab = ExtResource("4_ywd3r")
+trucksNode = NodePath("Trucks")
+bulletsNode = NodePath("Trucks/TruckBullets")
+truckPrefab = ExtResource("4_lxnh2")
+honkHonk = NodePath("IntroHonkHonk")
+bgm = NodePath("BGM")
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_mirroring = Vector2(1920, 540)
+
+[node name="RoadBackground" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+position = Vector2(480, 270)
+scale = Vector2(2, 2)
+texture = ExtResource("1_7hqbw")
+
+[node name="Trees" type="Node2D" parent="."]
+
+[node name="Trucks" type="Node2D" parent="."]
+
+[node name="TruckBullets" type="Node2D" parent="Trucks"]
+
+[node name="MobileBase" parent="." instance=ExtResource("2_iue6p")]
+position = Vector2(480, 330)
+
+[node name="HealthUI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 3.0
+offset_top = 2.0
+offset_right = 43.0
+offset_bottom = 42.0
+
+[node name="Label" type="Label" parent="HealthUI"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 13.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 32
+text = "Hull Integrity:"
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="HealthUI"]
+layout_mode = 0
+offset_top = 27.0
+offset_right = 200.0
+offset_bottom = 67.0
+max_value = 1000.0
+value = 1000.0
+texture_under = SubResource("GradientTexture2D_jwmlm")
+texture_progress = SubResource("GradientTexture2D_ow4ar")
+tint_under = Color(1, 0, 0, 1)
+tint_progress = Color(0, 1, 0, 1)
+
+[node name="ProgressUI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 810.0
+offset_top = 10.0
+offset_right = 850.0
+offset_bottom = 50.0
+
+[node name="Label" type="Label" parent="ProgressUI"]
+layout_mode = 0
+offset_left = -174.0
+offset_top = -7.0
+offset_right = 149.0
+offset_bottom = 19.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 32
+text = "Distance to the Maker:"
+
+[node name="Label2" type="Label" parent="ProgressUI"]
+layout_mode = 0
+offset_left = -174.0
+offset_top = 19.0
+offset_right = 149.0
+offset_bottom = 45.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 40
+text = "6.00 km"
+horizontal_alignment = 2
+
+[node name="IntroHonkHonk" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_wtu4l")
+volume_db = 10.0
+
+[node name="BGM" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("8_xrl5w")
+volume_db = -10.0

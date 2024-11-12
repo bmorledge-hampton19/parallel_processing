@@ -1,0 +1,1376 @@
+[gd_scene load_steps=61 format=3 uid="uid://bcpnh26a5wirk"]
+
+[ext_resource type="Texture2D" uid="uid://2uijbuema4y3" path="res://images/mobile_base.png" id="1_njmwo"]
+[ext_resource type="Script" path="res://scripts/on_the_road/MobileBase.gd" id="2_6tvem"]
+[ext_resource type="PackedScene" uid="uid://dlmttb57pixg5" path="res://scenes/objects/player_UI.tscn" id="3_qlr8l"]
+[ext_resource type="PackedScene" uid="uid://drjghef45kjvn" path="res://scenes/objects/wall.tscn" id="4_7hnly"]
+[ext_resource type="Script" path="res://scripts/on_the_road/Arm.gd" id="5_hpih5"]
+[ext_resource type="Script" path="res://scripts/on_the_road/ArmInteractor.gd" id="5_n68fr"]
+[ext_resource type="Texture2D" uid="uid://c0n87sm0wtkt3" path="res://images/mobile_base_attachments.png" id="6_f6djs"]
+[ext_resource type="Texture2D" uid="uid://b2l8jri3iwev3" path="res://images/arm_trail.png" id="7_d00xd"]
+[ext_resource type="Texture2D" uid="uid://b0h728hay2s4k" path="res://images/movable_items.png" id="7_htyqv"]
+[ext_resource type="Script" path="res://scripts/on_the_road/PassThrough.gd" id="10_2oh8r"]
+[ext_resource type="Script" path="res://scripts/on_the_road/Gun.gd" id="10_6x1a3"]
+[ext_resource type="PackedScene" uid="uid://b2tnyevggs7b8" path="res://scenes/objects/bullet.tscn" id="11_2r6yp"]
+[ext_resource type="Script" path="res://scripts/on_the_road/WoodProcessor.gd" id="11_15trh"]
+[ext_resource type="Texture2D" uid="uid://b2y37p3qcw1o0" path="res://images/indicator.png" id="12_02gda"]
+[ext_resource type="Script" path="res://scripts/on_the_road/GunInteractor.gd" id="12_52pxr"]
+[ext_resource type="Script" path="res://scripts/on_the_road/AmmoProcessor.gd" id="12_nhxuv"]
+[ext_resource type="PackedScene" uid="uid://c1kcuhnn1t2r6" path="res://scenes/audio_sources/player_gunshot.tscn" id="12_uvdpw"]
+[ext_resource type="Script" path="res://scripts/on_the_road/FuelProcessor.gd" id="13_beo70"]
+[ext_resource type="Script" path="res://scripts/on_the_road/SpeedInteractor.gd" id="14_0yq2v"]
+[ext_resource type="Script" path="res://scripts/on_the_road/SteeringInteractor.gd" id="15_ufumo"]
+[ext_resource type="AudioStream" uid="uid://tgohlfu2su7a" path="res://audio/SE/wood_chop.mp3" id="16_ye7l6"]
+[ext_resource type="AudioStream" uid="uid://dppkoins1dfit" path="res://audio/SE/on_no_fuel.mp3" id="19_b6tpi"]
+[ext_resource type="AudioStream" uid="uid://1xf02gvrynw6" path="res://audio/SE/fire_fwoosh.mp3" id="20_l51vo"]
+[ext_resource type="Script" path="res://scripts/on_the_road/Garbage.gd" id="20_mdar8"]
+[ext_resource type="AudioStream" uid="uid://c3wctd3fd3mys" path="res://audio/SE/engine_revving.mp3" id="23_lwhi0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b6qdy"]
+resource_local_to_scene = true
+size = Vector2(642, 2)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_201fq"]
+resource_local_to_scene = true
+size = Vector2(2, 386)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_giw6a"]
+resource_local_to_scene = true
+size = Vector2(642, 2)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_w73bc"]
+resource_local_to_scene = true
+size = Vector2(2, 386)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tp17u"]
+resource_local_to_scene = true
+size = Vector2(53, 6)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f6djb"]
+resource_local_to_scene = true
+size = Vector2(6, 53)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nno0y"]
+resource_local_to_scene = true
+size = Vector2(6, 100)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4n0yd"]
+resource_local_to_scene = true
+size = Vector2(6, 53)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0oxfp"]
+resource_local_to_scene = true
+size = Vector2(53, 6)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q44ax"]
+resource_local_to_scene = true
+size = Vector2(100, 6)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fhx6k"]
+resource_local_to_scene = true
+size = Vector2(6, 262)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cce18"]
+resource_local_to_scene = true
+size = Vector2(518, 6)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dasfi"]
+resource_local_to_scene = true
+size = Vector2(100, 6)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wh1g8"]
+resource_local_to_scene = true
+size = Vector2(100, 6)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fuw5g"]
+resource_local_to_scene = true
+size = Vector2(6, 262)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pr87a"]
+resource_local_to_scene = true
+size = Vector2(100, 6)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7br5n"]
+resource_local_to_scene = true
+size = Vector2(100, 6)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m08we"]
+resource_local_to_scene = true
+size = Vector2(6, 262)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gd146"]
+resource_local_to_scene = true
+size = Vector2(100, 6)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2ib3y"]
+resource_local_to_scene = true
+size = Vector2(53, 6)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_aropm"]
+resource_local_to_scene = true
+size = Vector2(6, 53)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jgt8k"]
+resource_local_to_scene = true
+size = Vector2(6, 100)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tpagm"]
+resource_local_to_scene = true
+size = Vector2(6, 53)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4nkj2"]
+resource_local_to_scene = true
+size = Vector2(53, 6)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_j6gky"]
+size = Vector2(26, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_76glx"]
+size = Vector2(12, 12)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_20rc3"]
+size = Vector2(12, 12)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lagya"]
+size = Vector2(12, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jch4e"]
+size = Vector2(16, 12)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7jgd2"]
+size = Vector2(12, 12)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yrl88"]
+size = Vector2(40, 6)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qtf72"]
+size = Vector2(12, 12)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jdx5o"]
+size = Vector2(12, 12)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mup0i"]
+size = Vector2(12, 12)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mxgxs"]
+size = Vector2(652, 404)
+
+[node name="MobileBase" type="Sprite2D" node_paths=PackedStringArray("playersNode", "hitbox", "fuelProcessor", "fuelTankIndicator", "speedInteractor", "speedInteractorIndicator", "steeringInteractor", "onNoFuel", "onRefuel", "onSpeedChange")]
+position = Vector2(414, 347)
+texture = ExtResource("1_njmwo")
+script = ExtResource("2_6tvem")
+playerUIPrefab = ExtResource("3_qlr8l")
+playersNode = NodePath("Players")
+hitbox = NodePath("Hitbox")
+fuelProcessor = NodePath("FuelProcessing/FuelProcessor")
+fuelTankIndicator = NodePath("FuelProcessing/Indicator")
+speedInteractor = NodePath("Piloting/SpeedInteractor")
+speedInteractorIndicator = NodePath("Piloting/Indicator")
+steeringInteractor = NodePath("Piloting/Steering")
+onNoFuel = NodePath("FuelProcessing/OnNoFuel")
+onRefuel = NodePath("FuelProcessing/OnRefuel")
+onSpeedChange = NodePath("Piloting/SpeedInteractor/OnSpeedChange")
+
+[node name="Walls" type="Node2D" parent="."]
+
+[node name="Wall" parent="Walls" instance=ExtResource("4_7hnly")]
+position = Vector2(-287, -162)
+collision_layer = 4
+collision_mask = 0
+
+[node name="CollisionShape2D" parent="Walls/Wall" index="0"]
+position = Vector2(287, -30)
+shape = SubResource("RectangleShape2D_b6qdy")
+
+[node name="Wall2" parent="Walls" instance=ExtResource("4_7hnly")]
+position = Vector2(-329, -176)
+collision_layer = 4
+collision_mask = 0
+
+[node name="CollisionShape2D" parent="Walls/Wall2" index="0"]
+position = Vector2(9, 176)
+shape = SubResource("RectangleShape2D_201fq")
+
+[node name="Wall3" parent="Walls" instance=ExtResource("4_7hnly")]
+position = Vector2(-305, 187)
+collision_layer = 4
+collision_mask = 0
+
+[node name="CollisionShape2D" parent="Walls/Wall3" index="0"]
+position = Vector2(305, 5)
+shape = SubResource("RectangleShape2D_giw6a")
+
+[node name="Wall4" parent="Walls" instance=ExtResource("4_7hnly")]
+position = Vector2(305, 168)
+collision_layer = 4
+collision_mask = 0
+
+[node name="CollisionShape2D" parent="Walls/Wall4" index="0"]
+position = Vector2(15, -168)
+shape = SubResource("RectangleShape2D_w73bc")
+
+[node name="Wall5" parent="Walls" instance=ExtResource("4_7hnly")]
+collision_layer = 4
+collision_mask = 0
+
+[node name="CollisionShape2D" parent="Walls/Wall5" index="0"]
+position = Vector2(-232.5, -128)
+shape = SubResource("RectangleShape2D_tp17u")
+
+[node name="Wall6" parent="Walls" instance=ExtResource("4_7hnly")]
+collision_layer = 4
+collision_mask = 0
+
+[node name="CollisionShape2D" parent="Walls/Wall6" index="0"]
+position = Vector2(-256, -104.5)
+shape = SubResource("RectangleShape2D_f6djb")
+
+[node name="Wall7" parent="Walls" instance=ExtResource("4_7hnly")]
+collision_layer = 4
+collision_mask = 0
+
+[node name="CollisionShape2D" parent="Walls/Wall7" index="0"]
+position = Vector2(-256, 0)
+shape = SubResource("RectangleShape2D_nno0y")
+
+[node name="Wall8" parent="Walls" instance=ExtResource("4_7hnly")]
+collision_layer = 4
+collision_mask = 0
+
+[node name="CollisionShape2D" parent="Walls/Wall8" index="0"]
+position = Vector2(-256, 104.5)
+shape = SubResource("RectangleShape2D_4n0yd")
+
+[node name="Wall9" parent="Walls" instance=ExtResource("4_7hnly")]
+collision_layer = 4
+collision_mask = 0
+
+[node name="CollisionShape2D" parent="Walls/Wall9" index="0"]
+position = Vector2(-232.5, 128)
+shape = SubResource("RectangleShape2D_0oxfp")
+
+[node name="Wall10" parent="Walls" instance=ExtResource("4_7hnly")]
+collision_layer = 4
+collision_mask = 0
+
+[node name="CollisionShape2D" parent="Walls/Wall10" index="0"]
+position = Vector2(-128, 128)
+shape = SubResource("RectangleShape2D_q44ax")
+
+[node name="Wall11" parent="Walls" instance=ExtResource("4_7hnly")]
+position = Vector2(-121, 121)
+collision_layer = 4
+collision_mask = 0
+
+[node name="CollisionShape2D" parent="Walls/Wall11" index="0"]
+position = Vector2(-7, -121)
+shape = SubResource("RectangleShape2D_fhx6k")
+
+[node name="Wall12" parent="Walls" instance=ExtResource("4_7hnly")]
+collision_layer = 4
+collision_mask = 0
+
+[node name="CollisionShape2D" parent="Walls/Wall12" index="0"]
+shape = SubResource("RectangleShape2D_cce18")
+
+[node name="Wall13" parent="Walls" instance=ExtResource("4_7hnly")]
+collision_layer = 4
+collision_mask = 0
+
+[node name="CollisionShape2D" parent="Walls/Wall13" index="0"]
+position = Vector2(-128, -128)
+shape = SubResource("RectangleShape2D_dasfi")
+
+[node name="Wall14" parent="Walls" instance=ExtResource("4_7hnly")]
+collision_layer = 4
+collision_mask = 0
+
+[node name="CollisionShape2D" parent="Walls/Wall14" index="0"]
+position = Vector2(0, -128)
+shape = SubResource("RectangleShape2D_wh1g8")
+
+[node name="Wall15" parent="Walls" instance=ExtResource("4_7hnly")]
+collision_layer = 4
+collision_mask = 0
+
+[node name="CollisionShape2D" parent="Walls/Wall15" index="0"]
+shape = SubResource("RectangleShape2D_fuw5g")
+
+[node name="Wall16" parent="Walls" instance=ExtResource("4_7hnly")]
+collision_layer = 4
+collision_mask = 0
+
+[node name="CollisionShape2D" parent="Walls/Wall16" index="0"]
+position = Vector2(0, 128)
+shape = SubResource("RectangleShape2D_pr87a")
+
+[node name="Wall17" parent="Walls" instance=ExtResource("4_7hnly")]
+collision_layer = 4
+collision_mask = 0
+
+[node name="CollisionShape2D" parent="Walls/Wall17" index="0"]
+position = Vector2(128, 128)
+shape = SubResource("RectangleShape2D_7br5n")
+
+[node name="Wall18" parent="Walls" instance=ExtResource("4_7hnly")]
+collision_layer = 4
+collision_mask = 0
+
+[node name="CollisionShape2D" parent="Walls/Wall18" index="0"]
+position = Vector2(128, 0)
+shape = SubResource("RectangleShape2D_m08we")
+
+[node name="Wall19" parent="Walls" instance=ExtResource("4_7hnly")]
+collision_layer = 4
+collision_mask = 0
+
+[node name="CollisionShape2D" parent="Walls/Wall19" index="0"]
+position = Vector2(128, -128)
+shape = SubResource("RectangleShape2D_gd146")
+
+[node name="Wall20" parent="Walls" instance=ExtResource("4_7hnly")]
+collision_layer = 4
+collision_mask = 0
+
+[node name="CollisionShape2D" parent="Walls/Wall20" index="0"]
+position = Vector2(232.5, -128)
+shape = SubResource("RectangleShape2D_2ib3y")
+
+[node name="Wall21" parent="Walls" instance=ExtResource("4_7hnly")]
+collision_layer = 4
+collision_mask = 0
+
+[node name="CollisionShape2D" parent="Walls/Wall21" index="0"]
+position = Vector2(256, -104.5)
+shape = SubResource("RectangleShape2D_aropm")
+
+[node name="Wall22" parent="Walls" instance=ExtResource("4_7hnly")]
+collision_layer = 4
+collision_mask = 0
+
+[node name="CollisionShape2D" parent="Walls/Wall22" index="0"]
+position = Vector2(256, 0)
+shape = SubResource("RectangleShape2D_jgt8k")
+
+[node name="Wall23" parent="Walls" instance=ExtResource("4_7hnly")]
+collision_layer = 4
+collision_mask = 0
+
+[node name="CollisionShape2D" parent="Walls/Wall23" index="0"]
+position = Vector2(256, 104.5)
+shape = SubResource("RectangleShape2D_tpagm")
+
+[node name="Wall24" parent="Walls" instance=ExtResource("4_7hnly")]
+collision_layer = 4
+collision_mask = 0
+
+[node name="CollisionShape2D" parent="Walls/Wall24" index="0"]
+position = Vector2(232.5, 128)
+shape = SubResource("RectangleShape2D_4nkj2")
+
+[node name="Arms" type="Node2D" parent="."]
+
+[node name="Arm" type="Node2D" parent="Arms" node_paths=PackedStringArray("collider", "sprite", "trail", "grabbedMaterialSprite")]
+position = Vector2(-322, 126)
+rotation = 3.14159
+script = ExtResource("5_hpih5")
+collider = NodePath("Collider")
+sprite = NodePath("ArmSprite")
+trail = NodePath("Line2D")
+grabbedMaterialSprite = NodePath("GrabbedMaterial")
+
+[node name="Collider" type="Area2D" parent="Arms/Arm"]
+position = Vector2(16, 0)
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Arms/Arm/Collider"]
+position = Vector2(-3, 0)
+shape = SubResource("RectangleShape2D_j6gky")
+
+[node name="Line2D" type="Line2D" parent="Arms/Arm"]
+top_level = true
+texture_repeat = 2
+position = Vector2(16, 0)
+width = 14.0
+texture = ExtResource("7_d00xd")
+texture_mode = 1
+begin_cap_mode = 2
+antialiased = true
+
+[node name="ArmSprite" type="Sprite2D" parent="Arms/Arm"]
+position = Vector2(16, 0)
+texture = ExtResource("6_f6djs")
+region_enabled = true
+region_rect = Rect2(0, 32, 32, 32)
+
+[node name="GrabbedMaterial" type="Sprite2D" parent="Arms/Arm"]
+visible = false
+position = Vector2(22, -1.9233e-06)
+texture = ExtResource("7_htyqv")
+region_enabled = true
+region_rect = Rect2(0, 0, 12, 12)
+
+[node name="Arm2" type="Node2D" parent="Arms" node_paths=PackedStringArray("collider", "sprite", "trail", "grabbedMaterialSprite")]
+position = Vector2(-322, -66)
+rotation = 3.14159
+script = ExtResource("5_hpih5")
+collider = NodePath("Collider")
+sprite = NodePath("ArmSprite")
+trail = NodePath("Line2D")
+grabbedMaterialSprite = NodePath("GrabbedMaterial")
+
+[node name="Collider" type="Area2D" parent="Arms/Arm2"]
+position = Vector2(16, 0)
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Arms/Arm2/Collider"]
+position = Vector2(-3, 0)
+shape = SubResource("RectangleShape2D_j6gky")
+
+[node name="Line2D" type="Line2D" parent="Arms/Arm2"]
+top_level = true
+texture_repeat = 2
+position = Vector2(16, 0)
+width = 14.0
+texture = ExtResource("7_d00xd")
+texture_mode = 1
+begin_cap_mode = 2
+antialiased = true
+
+[node name="ArmSprite" type="Sprite2D" parent="Arms/Arm2"]
+position = Vector2(16, 0)
+texture = ExtResource("6_f6djs")
+region_enabled = true
+region_rect = Rect2(0, 32, 32, 32)
+
+[node name="GrabbedMaterial" type="Sprite2D" parent="Arms/Arm2"]
+visible = false
+position = Vector2(22, -1.9233e-06)
+texture = ExtResource("7_htyqv")
+region_enabled = true
+region_rect = Rect2(0, 0, 12, 12)
+
+[node name="Arm3" type="Node2D" parent="Arms" node_paths=PackedStringArray("collider", "sprite", "trail", "grabbedMaterialSprite")]
+position = Vector2(322, 126)
+script = ExtResource("5_hpih5")
+collider = NodePath("Collider")
+sprite = NodePath("ArmSprite")
+trail = NodePath("Line2D")
+grabbedMaterialSprite = NodePath("GrabbedMaterial")
+
+[node name="Collider" type="Area2D" parent="Arms/Arm3"]
+position = Vector2(16, 0)
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Arms/Arm3/Collider"]
+position = Vector2(-3, 0)
+shape = SubResource("RectangleShape2D_j6gky")
+
+[node name="Line2D" type="Line2D" parent="Arms/Arm3"]
+top_level = true
+texture_repeat = 2
+position = Vector2(16, 0)
+width = 14.0
+texture = ExtResource("7_d00xd")
+texture_mode = 1
+begin_cap_mode = 2
+antialiased = true
+
+[node name="ArmSprite" type="Sprite2D" parent="Arms/Arm3"]
+position = Vector2(16, 0)
+texture = ExtResource("6_f6djs")
+region_enabled = true
+region_rect = Rect2(0, 32, 32, 32)
+
+[node name="GrabbedMaterial" type="Sprite2D" parent="Arms/Arm3"]
+visible = false
+position = Vector2(22, -1.9233e-06)
+texture = ExtResource("7_htyqv")
+region_enabled = true
+region_rect = Rect2(0, 0, 12, 12)
+
+[node name="Arm4" type="Node2D" parent="Arms" node_paths=PackedStringArray("collider", "sprite", "trail", "grabbedMaterialSprite")]
+position = Vector2(322, -66)
+script = ExtResource("5_hpih5")
+collider = NodePath("Collider")
+sprite = NodePath("ArmSprite")
+trail = NodePath("Line2D")
+grabbedMaterialSprite = NodePath("GrabbedMaterial")
+
+[node name="Collider" type="Area2D" parent="Arms/Arm4"]
+position = Vector2(16, 0)
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Arms/Arm4/Collider"]
+position = Vector2(-3, 0)
+shape = SubResource("RectangleShape2D_j6gky")
+
+[node name="Line2D" type="Line2D" parent="Arms/Arm4"]
+top_level = true
+texture_repeat = 2
+position = Vector2(16, 0)
+width = 14.0
+texture = ExtResource("7_d00xd")
+texture_mode = 1
+begin_cap_mode = 2
+antialiased = true
+
+[node name="ArmSprite" type="Sprite2D" parent="Arms/Arm4"]
+position = Vector2(16, 0)
+texture = ExtResource("6_f6djs")
+region_enabled = true
+region_rect = Rect2(0, 32, 32, 32)
+
+[node name="GrabbedMaterial" type="Sprite2D" parent="Arms/Arm4"]
+visible = false
+position = Vector2(22, -1.9233e-06)
+texture = ExtResource("7_htyqv")
+region_enabled = true
+region_rect = Rect2(0, 0, 12, 12)
+
+[node name="ArmInteractor" type="Area2D" parent="Arms" node_paths=PackedStringArray("arm")]
+position = Vector2(-312, 126)
+collision_layer = 8
+script = ExtResource("5_n68fr")
+arm = NodePath("../Arm")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Arms/ArmInteractor"]
+shape = SubResource("RectangleShape2D_76glx")
+
+[node name="ArmInteractor2" type="Area2D" parent="Arms" node_paths=PackedStringArray("arm")]
+position = Vector2(-312, -66)
+collision_layer = 8
+script = ExtResource("5_n68fr")
+arm = NodePath("../Arm2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Arms/ArmInteractor2"]
+shape = SubResource("RectangleShape2D_76glx")
+
+[node name="ArmInteractor3" type="Area2D" parent="Arms" node_paths=PackedStringArray("arm")]
+position = Vector2(312, 126)
+collision_layer = 8
+script = ExtResource("5_n68fr")
+arm = NodePath("../Arm3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Arms/ArmInteractor3"]
+shape = SubResource("RectangleShape2D_76glx")
+
+[node name="ArmInteractor4" type="Area2D" parent="Arms" node_paths=PackedStringArray("arm")]
+position = Vector2(312, -66)
+collision_layer = 8
+script = ExtResource("5_n68fr")
+arm = NodePath("../Arm4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Arms/ArmInteractor4"]
+shape = SubResource("RectangleShape2D_76glx")
+
+[node name="Guns" type="Node2D" parent="."]
+
+[node name="Gun" type="Node2D" parent="Guns" node_paths=PackedStringArray("spriteAnchor", "bulletSpawner", "bulletsNode", "gunshotsNode", "woodenAmmoLabel", "metalAmmoLabel")]
+position = Vector2(-322, 62)
+script = ExtResource("10_6x1a3")
+spriteAnchor = NodePath("SpriteAnchor")
+bulletPrefab = ExtResource("11_2r6yp")
+bulletSpawner = NodePath("SpriteAnchor/BulletSpawner")
+bulletsNode = NodePath("../Bullets")
+gunshotsNode = NodePath("Gunshots")
+playerGunshotPrefab = ExtResource("12_uvdpw")
+woodenAmmoLabel = NodePath("WoodenAmmoDisplay/Label")
+metalAmmoLabel = NodePath("MetalAmmoDisplay/Label")
+
+[node name="SpriteAnchor" type="Node2D" parent="Guns/Gun"]
+
+[node name="Sprite" type="Sprite2D" parent="Guns/Gun/SpriteAnchor"]
+position = Vector2(-16, 0)
+texture = ExtResource("6_f6djs")
+flip_h = true
+region_enabled = true
+region_rect = Rect2(0, 0, 32, 32)
+
+[node name="BulletSpawner" type="Node2D" parent="Guns/Gun/SpriteAnchor"]
+position = Vector2(-29, 0)
+
+[node name="GunInteractor" type="Area2D" parent="Guns/Gun" node_paths=PackedStringArray("gun")]
+position = Vector2(10, 0)
+script = ExtResource("12_52pxr")
+gun = NodePath("..")
+
+[node name="Collider" type="CollisionShape2D" parent="Guns/Gun/GunInteractor"]
+shape = SubResource("RectangleShape2D_20rc3")
+
+[node name="WoodenAmmoDisplay" type="Control" parent="Guns/Gun"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 4.0
+offset_top = -19.0
+offset_right = 36.0
+offset_bottom = -7.0
+
+[node name="Sprite2D" type="Sprite2D" parent="Guns/Gun/WoodenAmmoDisplay"]
+position = Vector2(6, 6)
+texture = ExtResource("7_htyqv")
+region_enabled = true
+region_rect = Rect2(0, 36, 12, 12)
+
+[node name="Label" type="Label" parent="Guns/Gun/WoodenAmmoDisplay"]
+layout_mode = 0
+offset_left = 13.0
+offset_top = 2.0
+offset_right = 35.0
+offset_bottom = 15.0
+text = "x0"
+vertical_alignment = 2
+
+[node name="MetalAmmoDisplay" type="Control" parent="Guns/Gun"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 4.0
+offset_top = 7.0
+offset_right = 36.0
+offset_bottom = 19.0
+
+[node name="Sprite2D" type="Sprite2D" parent="Guns/Gun/MetalAmmoDisplay"]
+position = Vector2(6, 6)
+texture = ExtResource("7_htyqv")
+region_enabled = true
+region_rect = Rect2(12, 24, 12, 12)
+
+[node name="Label" type="Label" parent="Guns/Gun/MetalAmmoDisplay"]
+layout_mode = 0
+offset_left = 13.0
+offset_top = 2.0
+offset_right = 35.0
+offset_bottom = 15.0
+text = "x50"
+vertical_alignment = 2
+
+[node name="Gunshots" type="Node2D" parent="Guns/Gun"]
+
+[node name="Gun2" type="Node2D" parent="Guns" node_paths=PackedStringArray("spriteAnchor", "bulletSpawner", "bulletsNode", "gunshotsNode", "woodenAmmoLabel", "metalAmmoLabel")]
+position = Vector2(-322, -130)
+script = ExtResource("10_6x1a3")
+spriteAnchor = NodePath("SpriteAnchor")
+bulletPrefab = ExtResource("11_2r6yp")
+bulletSpawner = NodePath("SpriteAnchor/BulletSpawner")
+bulletsNode = NodePath("../Bullets")
+gunshotsNode = NodePath("Gunshots")
+playerGunshotPrefab = ExtResource("12_uvdpw")
+woodenAmmoLabel = NodePath("WoodenAmmoDisplay/Label")
+metalAmmoLabel = NodePath("MetalAmmoDisplay/Label")
+
+[node name="SpriteAnchor" type="Node2D" parent="Guns/Gun2"]
+
+[node name="Sprite" type="Sprite2D" parent="Guns/Gun2/SpriteAnchor"]
+position = Vector2(-16, 0)
+texture = ExtResource("6_f6djs")
+flip_h = true
+region_enabled = true
+region_rect = Rect2(0, 0, 32, 32)
+
+[node name="BulletSpawner" type="Node2D" parent="Guns/Gun2/SpriteAnchor"]
+position = Vector2(-29, 0)
+
+[node name="GunInteractor" type="Area2D" parent="Guns/Gun2" node_paths=PackedStringArray("gun")]
+position = Vector2(10, 0)
+script = ExtResource("12_52pxr")
+gun = NodePath("..")
+
+[node name="Collider" type="CollisionShape2D" parent="Guns/Gun2/GunInteractor"]
+shape = SubResource("RectangleShape2D_20rc3")
+
+[node name="WoodenAmmoDisplay" type="Control" parent="Guns/Gun2"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 4.0
+offset_top = -19.0
+offset_right = 36.0
+offset_bottom = -7.0
+
+[node name="Sprite2D" type="Sprite2D" parent="Guns/Gun2/WoodenAmmoDisplay"]
+position = Vector2(6, 6)
+texture = ExtResource("7_htyqv")
+region_enabled = true
+region_rect = Rect2(0, 36, 12, 12)
+
+[node name="Label" type="Label" parent="Guns/Gun2/WoodenAmmoDisplay"]
+layout_mode = 0
+offset_left = 13.0
+offset_top = 2.0
+offset_right = 35.0
+offset_bottom = 15.0
+text = "x0"
+vertical_alignment = 2
+
+[node name="MetalAmmoDisplay" type="Control" parent="Guns/Gun2"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 4.0
+offset_top = 7.0
+offset_right = 36.0
+offset_bottom = 19.0
+
+[node name="Sprite2D" type="Sprite2D" parent="Guns/Gun2/MetalAmmoDisplay"]
+position = Vector2(6, 6)
+texture = ExtResource("7_htyqv")
+region_enabled = true
+region_rect = Rect2(12, 24, 12, 12)
+
+[node name="Label" type="Label" parent="Guns/Gun2/MetalAmmoDisplay"]
+layout_mode = 0
+offset_left = 13.0
+offset_top = 2.0
+offset_right = 35.0
+offset_bottom = 15.0
+text = "x50"
+vertical_alignment = 2
+
+[node name="Gunshots" type="Node2D" parent="Guns/Gun2"]
+
+[node name="Gun3" type="Node2D" parent="Guns" node_paths=PackedStringArray("spriteAnchor", "bulletSpawner", "bulletsNode", "gunshotsNode", "woodenAmmoLabel", "metalAmmoLabel")]
+position = Vector2(322, -130)
+rotation = 3.14159
+script = ExtResource("10_6x1a3")
+spriteAnchor = NodePath("SpriteAnchor")
+bulletPrefab = ExtResource("11_2r6yp")
+bulletSpawner = NodePath("SpriteAnchor/BulletSpawner")
+bulletsNode = NodePath("../Bullets")
+gunshotsNode = NodePath("Gunshots")
+playerGunshotPrefab = ExtResource("12_uvdpw")
+woodenAmmoLabel = NodePath("WoodenAmmoDisplay/Label")
+metalAmmoLabel = NodePath("MetalAmmoDisplay/Label")
+
+[node name="SpriteAnchor" type="Node2D" parent="Guns/Gun3"]
+
+[node name="Sprite" type="Sprite2D" parent="Guns/Gun3/SpriteAnchor"]
+position = Vector2(-16, 0)
+texture = ExtResource("6_f6djs")
+flip_h = true
+region_enabled = true
+region_rect = Rect2(0, 0, 32, 32)
+
+[node name="BulletSpawner" type="Node2D" parent="Guns/Gun3/SpriteAnchor"]
+position = Vector2(-29, 0)
+
+[node name="GunInteractor" type="Area2D" parent="Guns/Gun3" node_paths=PackedStringArray("gun")]
+position = Vector2(10, 0)
+script = ExtResource("12_52pxr")
+gun = NodePath("..")
+
+[node name="Collider" type="CollisionShape2D" parent="Guns/Gun3/GunInteractor"]
+shape = SubResource("RectangleShape2D_20rc3")
+
+[node name="WoodenAmmoDisplay" type="Control" parent="Guns/Gun3"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 43.0
+offset_top = -7.0
+offset_right = 75.0
+offset_bottom = 5.0
+rotation = 3.14159
+
+[node name="Sprite2D" type="Sprite2D" parent="Guns/Gun3/WoodenAmmoDisplay"]
+position = Vector2(6, 6)
+texture = ExtResource("7_htyqv")
+region_enabled = true
+region_rect = Rect2(0, 36, 12, 12)
+
+[node name="Label" type="Label" parent="Guns/Gun3/WoodenAmmoDisplay"]
+layout_mode = 0
+offset_left = 13.0
+offset_top = 2.0
+offset_right = 35.0
+offset_bottom = 15.0
+text = "x0"
+vertical_alignment = 2
+
+[node name="MetalAmmoDisplay" type="Control" parent="Guns/Gun3"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 43.0
+offset_top = 19.0
+offset_right = 75.0
+offset_bottom = 31.0
+rotation = 3.14159
+
+[node name="Sprite2D" type="Sprite2D" parent="Guns/Gun3/MetalAmmoDisplay"]
+position = Vector2(6, 6)
+texture = ExtResource("7_htyqv")
+region_enabled = true
+region_rect = Rect2(12, 24, 12, 12)
+
+[node name="Label" type="Label" parent="Guns/Gun3/MetalAmmoDisplay"]
+layout_mode = 0
+offset_left = 13.0
+offset_top = 2.0
+offset_right = 35.0
+offset_bottom = 15.0
+text = "x50"
+vertical_alignment = 2
+
+[node name="Gunshots" type="Node2D" parent="Guns/Gun3"]
+
+[node name="Gun4" type="Node2D" parent="Guns" node_paths=PackedStringArray("spriteAnchor", "bulletSpawner", "bulletsNode", "gunshotsNode", "woodenAmmoLabel", "metalAmmoLabel")]
+position = Vector2(322, 62)
+rotation = 3.14159
+script = ExtResource("10_6x1a3")
+spriteAnchor = NodePath("SpriteAnchor")
+bulletPrefab = ExtResource("11_2r6yp")
+bulletSpawner = NodePath("SpriteAnchor/BulletSpawner")
+bulletsNode = NodePath("../Bullets")
+gunshotsNode = NodePath("Gunshots")
+playerGunshotPrefab = ExtResource("12_uvdpw")
+woodenAmmoLabel = NodePath("WoodenAmmoDisplay/Label")
+metalAmmoLabel = NodePath("MetalAmmoDisplay/Label")
+
+[node name="SpriteAnchor" type="Node2D" parent="Guns/Gun4"]
+
+[node name="Sprite" type="Sprite2D" parent="Guns/Gun4/SpriteAnchor"]
+position = Vector2(-16, 0)
+texture = ExtResource("6_f6djs")
+flip_h = true
+region_enabled = true
+region_rect = Rect2(0, 0, 32, 32)
+
+[node name="BulletSpawner" type="Node2D" parent="Guns/Gun4/SpriteAnchor"]
+position = Vector2(-29, 0)
+
+[node name="GunInteractor" type="Area2D" parent="Guns/Gun4" node_paths=PackedStringArray("gun")]
+position = Vector2(10, 0)
+script = ExtResource("12_52pxr")
+gun = NodePath("..")
+
+[node name="Collider" type="CollisionShape2D" parent="Guns/Gun4/GunInteractor"]
+shape = SubResource("RectangleShape2D_20rc3")
+
+[node name="WoodenAmmoDisplay" type="Control" parent="Guns/Gun4"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 43.0
+offset_top = -7.0
+offset_right = 75.0
+offset_bottom = 5.0
+rotation = 3.14159
+
+[node name="Sprite2D" type="Sprite2D" parent="Guns/Gun4/WoodenAmmoDisplay"]
+position = Vector2(6, 6)
+texture = ExtResource("7_htyqv")
+region_enabled = true
+region_rect = Rect2(0, 36, 12, 12)
+
+[node name="Label" type="Label" parent="Guns/Gun4/WoodenAmmoDisplay"]
+layout_mode = 0
+offset_left = 13.0
+offset_top = 2.0
+offset_right = 35.0
+offset_bottom = 15.0
+text = "x0"
+vertical_alignment = 2
+
+[node name="MetalAmmoDisplay" type="Control" parent="Guns/Gun4"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 43.0
+offset_top = 19.0
+offset_right = 75.0
+offset_bottom = 31.0
+rotation = 3.14159
+
+[node name="Sprite2D" type="Sprite2D" parent="Guns/Gun4/MetalAmmoDisplay"]
+position = Vector2(6, 6)
+texture = ExtResource("7_htyqv")
+region_enabled = true
+region_rect = Rect2(12, 24, 12, 12)
+
+[node name="Label" type="Label" parent="Guns/Gun4/MetalAmmoDisplay"]
+layout_mode = 0
+offset_left = 13.0
+offset_top = 2.0
+offset_right = 35.0
+offset_bottom = 15.0
+text = "x50"
+vertical_alignment = 2
+
+[node name="Gunshots" type="Node2D" parent="Guns/Gun4"]
+
+[node name="Bullets" type="Node2D" parent="Guns"]
+
+[node name="PassThroughs" type="Node2D" parent="."]
+
+[node name="PassThrough" type="Area2D" parent="PassThroughs" node_paths=PackedStringArray("materialSprite")]
+position = Vector2(-256, 104)
+collision_layer = 8
+script = ExtResource("10_2oh8r")
+materialSprite = NodePath("Sprite")
+
+[node name="Collider" type="CollisionShape2D" parent="PassThroughs/PassThrough"]
+shape = SubResource("RectangleShape2D_lagya")
+
+[node name="Sprite" type="Sprite2D" parent="PassThroughs/PassThrough"]
+visible = false
+texture = ExtResource("7_htyqv")
+region_enabled = true
+region_rect = Rect2(0, 0, 12, 12)
+
+[node name="PassThrough2" type="Area2D" parent="PassThroughs" node_paths=PackedStringArray("materialSprite")]
+position = Vector2(-128, 64)
+collision_layer = 8
+script = ExtResource("10_2oh8r")
+materialSprite = NodePath("Sprite")
+
+[node name="Collider" type="CollisionShape2D" parent="PassThroughs/PassThrough2"]
+shape = SubResource("RectangleShape2D_lagya")
+
+[node name="Sprite" type="Sprite2D" parent="PassThroughs/PassThrough2"]
+visible = false
+texture = ExtResource("7_htyqv")
+region_enabled = true
+region_rect = Rect2(0, 0, 12, 12)
+
+[node name="PassThrough3" type="Area2D" parent="PassThroughs" node_paths=PackedStringArray("materialSprite")]
+position = Vector2(0, 64)
+collision_layer = 8
+script = ExtResource("10_2oh8r")
+materialSprite = NodePath("Sprite")
+
+[node name="Collider" type="CollisionShape2D" parent="PassThroughs/PassThrough3"]
+shape = SubResource("RectangleShape2D_lagya")
+
+[node name="Sprite" type="Sprite2D" parent="PassThroughs/PassThrough3"]
+visible = false
+texture = ExtResource("7_htyqv")
+region_enabled = true
+region_rect = Rect2(0, 0, 12, 12)
+
+[node name="PassThrough4" type="Area2D" parent="PassThroughs" node_paths=PackedStringArray("materialSprite")]
+position = Vector2(128, 64)
+collision_layer = 8
+script = ExtResource("10_2oh8r")
+materialSprite = NodePath("Sprite")
+
+[node name="Collider" type="CollisionShape2D" parent="PassThroughs/PassThrough4"]
+shape = SubResource("RectangleShape2D_lagya")
+
+[node name="Sprite" type="Sprite2D" parent="PassThroughs/PassThrough4"]
+visible = false
+texture = ExtResource("7_htyqv")
+region_enabled = true
+region_rect = Rect2(0, 0, 12, 12)
+
+[node name="PassThrough5" type="Area2D" parent="PassThroughs" node_paths=PackedStringArray("materialSprite")]
+position = Vector2(128, -64)
+collision_layer = 8
+script = ExtResource("10_2oh8r")
+materialSprite = NodePath("Sprite")
+
+[node name="Collider" type="CollisionShape2D" parent="PassThroughs/PassThrough5"]
+shape = SubResource("RectangleShape2D_lagya")
+
+[node name="Sprite" type="Sprite2D" parent="PassThroughs/PassThrough5"]
+visible = false
+texture = ExtResource("7_htyqv")
+region_enabled = true
+region_rect = Rect2(0, 0, 12, 12)
+
+[node name="PassThrough6" type="Area2D" parent="PassThroughs" node_paths=PackedStringArray("materialSprite")]
+position = Vector2(0, -64)
+collision_layer = 8
+script = ExtResource("10_2oh8r")
+materialSprite = NodePath("Sprite")
+
+[node name="Collider" type="CollisionShape2D" parent="PassThroughs/PassThrough6"]
+shape = SubResource("RectangleShape2D_lagya")
+
+[node name="Sprite" type="Sprite2D" parent="PassThroughs/PassThrough6"]
+visible = false
+texture = ExtResource("7_htyqv")
+region_enabled = true
+region_rect = Rect2(0, 0, 12, 12)
+
+[node name="PassThrough7" type="Area2D" parent="PassThroughs" node_paths=PackedStringArray("materialSprite")]
+position = Vector2(-128, -64)
+collision_layer = 8
+script = ExtResource("10_2oh8r")
+materialSprite = NodePath("Sprite")
+
+[node name="Collider" type="CollisionShape2D" parent="PassThroughs/PassThrough7"]
+shape = SubResource("RectangleShape2D_lagya")
+
+[node name="Sprite" type="Sprite2D" parent="PassThroughs/PassThrough7"]
+visible = false
+texture = ExtResource("7_htyqv")
+region_enabled = true
+region_rect = Rect2(0, 0, 12, 12)
+
+[node name="PassThrough8" type="Area2D" parent="PassThroughs" node_paths=PackedStringArray("materialSprite")]
+position = Vector2(-256, -104)
+collision_layer = 8
+script = ExtResource("10_2oh8r")
+materialSprite = NodePath("Sprite")
+
+[node name="Collider" type="CollisionShape2D" parent="PassThroughs/PassThrough8"]
+shape = SubResource("RectangleShape2D_lagya")
+
+[node name="Sprite" type="Sprite2D" parent="PassThroughs/PassThrough8"]
+visible = false
+texture = ExtResource("7_htyqv")
+region_enabled = true
+region_rect = Rect2(0, 0, 12, 12)
+
+[node name="PassThrough9" type="Area2D" parent="PassThroughs" node_paths=PackedStringArray("materialSprite")]
+position = Vector2(256, -104)
+collision_layer = 8
+script = ExtResource("10_2oh8r")
+materialSprite = NodePath("Sprite")
+
+[node name="Collider" type="CollisionShape2D" parent="PassThroughs/PassThrough9"]
+shape = SubResource("RectangleShape2D_lagya")
+
+[node name="Sprite" type="Sprite2D" parent="PassThroughs/PassThrough9"]
+visible = false
+texture = ExtResource("7_htyqv")
+region_enabled = true
+region_rect = Rect2(0, 0, 12, 12)
+
+[node name="PassThrough9_5" type="Area2D" parent="PassThroughs" node_paths=PackedStringArray("materialSprite")]
+position = Vector2(256, 104)
+collision_layer = 8
+script = ExtResource("10_2oh8r")
+materialSprite = NodePath("Sprite")
+
+[node name="Collider" type="CollisionShape2D" parent="PassThroughs/PassThrough9_5"]
+shape = SubResource("RectangleShape2D_lagya")
+
+[node name="Sprite" type="Sprite2D" parent="PassThroughs/PassThrough9_5"]
+visible = false
+texture = ExtResource("7_htyqv")
+region_enabled = true
+region_rect = Rect2(0, 0, 12, 12)
+
+[node name="PassThrough10" type="Area2D" parent="PassThroughs" node_paths=PackedStringArray("materialSprite")]
+position = Vector2(-152, -128)
+script = ExtResource("10_2oh8r")
+materialSprite = NodePath("Sprite")
+
+[node name="Collider" type="CollisionShape2D" parent="PassThroughs/PassThrough10"]
+shape = SubResource("RectangleShape2D_jch4e")
+
+[node name="Sprite" type="Sprite2D" parent="PassThroughs/PassThrough10"]
+visible = false
+texture = ExtResource("7_htyqv")
+region_enabled = true
+region_rect = Rect2(0, 0, 12, 12)
+
+[node name="PassThrough11" type="Area2D" parent="PassThroughs" node_paths=PackedStringArray("materialSprite")]
+position = Vector2(152, -128)
+script = ExtResource("10_2oh8r")
+materialSprite = NodePath("Sprite")
+
+[node name="Collider" type="CollisionShape2D" parent="PassThroughs/PassThrough11"]
+shape = SubResource("RectangleShape2D_jch4e")
+
+[node name="Sprite" type="Sprite2D" parent="PassThroughs/PassThrough11"]
+visible = false
+texture = ExtResource("7_htyqv")
+region_enabled = true
+region_rect = Rect2(0, 0, 12, 12)
+
+[node name="PassThrough12" type="Area2D" parent="PassThroughs" node_paths=PackedStringArray("materialSprite")]
+position = Vector2(-192, 0)
+script = ExtResource("10_2oh8r")
+materialSprite = NodePath("Sprite")
+
+[node name="Collider" type="CollisionShape2D" parent="PassThroughs/PassThrough12"]
+shape = SubResource("RectangleShape2D_jch4e")
+
+[node name="Sprite" type="Sprite2D" parent="PassThroughs/PassThrough12"]
+visible = false
+texture = ExtResource("7_htyqv")
+region_enabled = true
+region_rect = Rect2(0, 0, 12, 12)
+
+[node name="PassThrough13" type="Area2D" parent="PassThroughs" node_paths=PackedStringArray("materialSprite")]
+position = Vector2(-64, 0)
+script = ExtResource("10_2oh8r")
+materialSprite = NodePath("Sprite")
+
+[node name="Collider" type="CollisionShape2D" parent="PassThroughs/PassThrough13"]
+shape = SubResource("RectangleShape2D_jch4e")
+
+[node name="Sprite" type="Sprite2D" parent="PassThroughs/PassThrough13"]
+visible = false
+texture = ExtResource("7_htyqv")
+region_enabled = true
+region_rect = Rect2(0, 0, 12, 12)
+
+[node name="PassThrough14" type="Area2D" parent="PassThroughs" node_paths=PackedStringArray("materialSprite")]
+position = Vector2(64, 0)
+script = ExtResource("10_2oh8r")
+materialSprite = NodePath("Sprite")
+
+[node name="Collider" type="CollisionShape2D" parent="PassThroughs/PassThrough14"]
+shape = SubResource("RectangleShape2D_jch4e")
+
+[node name="Sprite" type="Sprite2D" parent="PassThroughs/PassThrough14"]
+visible = false
+texture = ExtResource("7_htyqv")
+region_enabled = true
+region_rect = Rect2(0, 0, 12, 12)
+
+[node name="PassThrough15" type="Area2D" parent="PassThroughs" node_paths=PackedStringArray("materialSprite")]
+position = Vector2(192, 0)
+script = ExtResource("10_2oh8r")
+materialSprite = NodePath("Sprite")
+
+[node name="Collider" type="CollisionShape2D" parent="PassThroughs/PassThrough15"]
+shape = SubResource("RectangleShape2D_jch4e")
+
+[node name="Sprite" type="Sprite2D" parent="PassThroughs/PassThrough15"]
+visible = false
+texture = ExtResource("7_htyqv")
+region_enabled = true
+region_rect = Rect2(0, 0, 12, 12)
+
+[node name="WoodProcessing" type="Node2D" parent="."]
+
+[node name="WoodProcessor" type="Area2D" parent="WoodProcessing" node_paths=PackedStringArray("processedFuelSprites", "audioOnChop")]
+position = Vector2(-168, -26)
+collision_layer = 8
+script = ExtResource("11_15trh")
+processedFuelSprites = [NodePath("ProcessedFuel1"), NodePath("ProcessedFuel2"), NodePath("ProcessedFuel3"), NodePath("ProcessedFuel4")]
+audioOnChop = NodePath("AudioStreamPlayer2D")
+
+[node name="Collider" type="CollisionShape2D" parent="WoodProcessing/WoodProcessor"]
+shape = SubResource("RectangleShape2D_7jgd2")
+
+[node name="ProcessedFuel1" type="Sprite2D" parent="WoodProcessing/WoodProcessor"]
+position = Vector2(23, 6)
+texture = ExtResource("7_htyqv")
+region_enabled = true
+region_rect = Rect2(0, 12, 12, 12)
+
+[node name="ProcessedFuel2" type="Sprite2D" parent="WoodProcessing/WoodProcessor"]
+position = Vector2(23, 9)
+texture = ExtResource("7_htyqv")
+region_enabled = true
+region_rect = Rect2(0, 12, 12, 12)
+
+[node name="ProcessedFuel3" type="Sprite2D" parent="WoodProcessing/WoodProcessor"]
+position = Vector2(23, 12)
+texture = ExtResource("7_htyqv")
+region_enabled = true
+region_rect = Rect2(0, 12, 12, 12)
+
+[node name="ProcessedFuel4" type="Sprite2D" parent="WoodProcessing/WoodProcessor"]
+position = Vector2(23, 15)
+texture = ExtResource("7_htyqv")
+region_enabled = true
+region_rect = Rect2(0, 12, 12, 12)
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="WoodProcessing/WoodProcessor"]
+stream = ExtResource("16_ye7l6")
+
+[node name="WoodProcessor2" type="Area2D" parent="WoodProcessing" node_paths=PackedStringArray("processedFuelSprites", "audioOnChop")]
+position = Vector2(152, 40)
+collision_layer = 8
+script = ExtResource("11_15trh")
+processedFuelSprites = [NodePath("ProcessedFuel1"), NodePath("ProcessedFuel2"), NodePath("ProcessedFuel3"), NodePath("ProcessedFuel4")]
+audioOnChop = NodePath("AudioStreamPlayer2D2")
+
+[node name="Collider" type="CollisionShape2D" parent="WoodProcessing/WoodProcessor2"]
+shape = SubResource("RectangleShape2D_7jgd2")
+
+[node name="ProcessedFuel1" type="Sprite2D" parent="WoodProcessing/WoodProcessor2"]
+position = Vector2(7, -19)
+texture = ExtResource("7_htyqv")
+region_enabled = true
+region_rect = Rect2(0, 12, 12, 12)
+
+[node name="ProcessedFuel2" type="Sprite2D" parent="WoodProcessing/WoodProcessor2"]
+position = Vector2(10, -19)
+texture = ExtResource("7_htyqv")
+region_enabled = true
+region_rect = Rect2(0, 12, 12, 12)
+
+[node name="ProcessedFuel3" type="Sprite2D" parent="WoodProcessing/WoodProcessor2"]
+position = Vector2(13, -19)
+texture = ExtResource("7_htyqv")
+region_enabled = true
+region_rect = Rect2(0, 12, 12, 12)
+
+[node name="ProcessedFuel4" type="Sprite2D" parent="WoodProcessing/WoodProcessor2"]
+position = Vector2(16, -19)
+texture = ExtResource("7_htyqv")
+region_enabled = true
+region_rect = Rect2(0, 12, 12, 12)
+
+[node name="AudioStreamPlayer2D2" type="AudioStreamPlayer2D" parent="WoodProcessing/WoodProcessor2"]
+position = Vector2(-320, -66)
+stream = ExtResource("16_ye7l6")
+
+[node name="AmmoProcessing" type="Node2D" parent="."]
+
+[node name="AmmoProcessor" type="Area2D" parent="AmmoProcessing" node_paths=PackedStringArray("processedAmmoSprites")]
+position = Vector2(-168, 24)
+collision_layer = 8
+script = ExtResource("12_nhxuv")
+processedAmmoSprites = [NodePath("ProcessedAmmo1"), NodePath("ProcessedAmmo2"), NodePath("ProcessedAmmo3"), NodePath("ProcessedAmmo4")]
+
+[node name="Collider" type="CollisionShape2D" parent="AmmoProcessing/AmmoProcessor"]
+shape = SubResource("RectangleShape2D_7jgd2")
+
+[node name="ProcessedAmmo1" type="Sprite2D" parent="AmmoProcessing/AmmoProcessor"]
+position = Vector2(23, 3)
+texture = ExtResource("7_htyqv")
+region_enabled = true
+region_rect = Rect2(12, 12, 12, 12)
+
+[node name="ProcessedAmmo2" type="Sprite2D" parent="AmmoProcessing/AmmoProcessor"]
+position = Vector2(23, 7)
+texture = ExtResource("7_htyqv")
+region_enabled = true
+region_rect = Rect2(12, 12, 12, 12)
+
+[node name="ProcessedAmmo3" type="Sprite2D" parent="AmmoProcessing/AmmoProcessor"]
+position = Vector2(23, 11)
+texture = ExtResource("7_htyqv")
+region_enabled = true
+region_rect = Rect2(12, 12, 12, 12)
+
+[node name="ProcessedAmmo4" type="Sprite2D" parent="AmmoProcessing/AmmoProcessor"]
+position = Vector2(23, 15)
+texture = ExtResource("7_htyqv")
+region_enabled = true
+region_rect = Rect2(12, 12, 12, 12)
+
+[node name="AmmoProcessor2" type="Area2D" parent="AmmoProcessing" node_paths=PackedStringArray("processedAmmoSprites")]
+position = Vector2(168, -24)
+collision_layer = 8
+script = ExtResource("12_nhxuv")
+processedAmmoSprites = [NodePath("ProcessedAmmo1"), NodePath("ProcessedAmmo2"), NodePath("ProcessedAmmo3"), NodePath("ProcessedAmmo4")]
+
+[node name="Collider" type="CollisionShape2D" parent="AmmoProcessing/AmmoProcessor2"]
+shape = SubResource("RectangleShape2D_7jgd2")
+
+[node name="ProcessedAmmo1" type="Sprite2D" parent="AmmoProcessing/AmmoProcessor2"]
+position = Vector2(-17, -15)
+texture = ExtResource("7_htyqv")
+region_enabled = true
+region_rect = Rect2(12, 12, 12, 12)
+
+[node name="ProcessedAmmo2" type="Sprite2D" parent="AmmoProcessing/AmmoProcessor2"]
+position = Vector2(-17, -11)
+texture = ExtResource("7_htyqv")
+region_enabled = true
+region_rect = Rect2(12, 12, 12, 12)
+
+[node name="ProcessedAmmo3" type="Sprite2D" parent="AmmoProcessing/AmmoProcessor2"]
+position = Vector2(-17, -7)
+texture = ExtResource("7_htyqv")
+region_enabled = true
+region_rect = Rect2(12, 12, 12, 12)
+
+[node name="ProcessedAmmo4" type="Sprite2D" parent="AmmoProcessing/AmmoProcessor2"]
+position = Vector2(-17, -3)
+texture = ExtResource("7_htyqv")
+region_enabled = true
+region_rect = Rect2(12, 12, 12, 12)
+
+[node name="FuelProcessing" type="Node2D" parent="."]
+
+[node name="Indicator" type="Node2D" parent="FuelProcessing"]
+position = Vector2(-22.5, 21.5)
+
+[node name="Sprite2D" type="Sprite2D" parent="FuelProcessing/Indicator"]
+position = Vector2(0, 7.5)
+rotation = -1.5708
+texture = ExtResource("12_02gda")
+
+[node name="FuelProcessor" type="Area2D" parent="FuelProcessing"]
+position = Vector2(-98, 36)
+script = ExtResource("13_beo70")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FuelProcessing/FuelProcessor"]
+shape = SubResource("RectangleShape2D_yrl88")
+
+[node name="OnNoFuel" type="AudioStreamPlayer2D" parent="FuelProcessing"]
+stream = ExtResource("19_b6tpi")
+
+[node name="OnRefuel" type="AudioStreamPlayer2D" parent="FuelProcessing"]
+stream = ExtResource("20_l51vo")
+volume_db = 5.0
+
+[node name="Piloting" type="Node2D" parent="."]
+
+[node name="SpeedInteractor" type="Area2D" parent="Piloting"]
+position = Vector2(-104, -96)
+script = ExtResource("14_0yq2v")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Piloting/SpeedInteractor"]
+shape = SubResource("RectangleShape2D_qtf72")
+
+[node name="OnSpeedChange" type="AudioStreamPlayer2D" parent="Piloting/SpeedInteractor"]
+stream = ExtResource("23_lwhi0")
+bus = &"PitchUp"
+
+[node name="Indicator" type="Node2D" parent="Piloting"]
+position = Vector2(-104, -106)
+rotation = 2.0944
+
+[node name="Sprite2D" type="Sprite2D" parent="Piloting/Indicator"]
+position = Vector2(0, 8)
+rotation = -1.5708
+texture = ExtResource("12_02gda")
+
+[node name="Steering" type="Area2D" parent="Piloting"]
+position = Vector2(-28, -104)
+script = ExtResource("15_ufumo")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Piloting/Steering"]
+shape = SubResource("RectangleShape2D_jdx5o")
+
+[node name="Players" type="Node2D" parent="."]
+
+[node name="Garbage" type="Area2D" parent="."]
+position = Vector2(-1, 179)
+script = ExtResource("20_mdar8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Garbage"]
+shape = SubResource("RectangleShape2D_mup0i")
+
+[node name="Hitbox" type="Area2D" parent="."]
+collision_layer = 16
+collision_mask = 32
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+position = Vector2(0, -4)
+shape = SubResource("RectangleShape2D_mxgxs")
+debug_color = Color(0, 0.6, 0.701961, 0)
+
+[editable path="Walls/Wall"]
+[editable path="Walls/Wall2"]
+[editable path="Walls/Wall3"]
+[editable path="Walls/Wall4"]
+[editable path="Walls/Wall5"]
+[editable path="Walls/Wall6"]
+[editable path="Walls/Wall7"]
+[editable path="Walls/Wall8"]
+[editable path="Walls/Wall9"]
+[editable path="Walls/Wall10"]
+[editable path="Walls/Wall11"]
+[editable path="Walls/Wall12"]
+[editable path="Walls/Wall13"]
+[editable path="Walls/Wall14"]
+[editable path="Walls/Wall15"]
+[editable path="Walls/Wall16"]
+[editable path="Walls/Wall17"]
+[editable path="Walls/Wall18"]
+[editable path="Walls/Wall19"]
+[editable path="Walls/Wall20"]
+[editable path="Walls/Wall21"]
+[editable path="Walls/Wall22"]
+[editable path="Walls/Wall23"]
+[editable path="Walls/Wall24"]

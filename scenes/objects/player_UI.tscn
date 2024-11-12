@@ -1,0 +1,84 @@
+[gd_scene load_steps=7 format=3 uid="uid://dlmttb57pixg5"]
+
+[ext_resource type="Script" path="res://scripts/on_the_road/PlayerUI.gd" id="1_j0g0q"]
+[ext_resource type="Texture2D" uid="uid://bxyhbbk81wdgo" path="res://images/player_portraits.png" id="2_af5dq"]
+[ext_resource type="Texture2D" uid="uid://b0h728hay2s4k" path="res://images/movable_items.png" id="3_xk04f"]
+[ext_resource type="Texture2D" uid="uid://cl5msg72kc1n7" path="res://images/arrows.png" id="4_rflv8"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_28b0i"]
+friction = 0.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_yrcwq"]
+
+[node name="PlayerUI" type="RigidBody2D" node_paths=PackedStringArray("playerColorRect", "playerIcon", "playerName", "carriedMaterialSprite", "arrowsContainer", "arrows")]
+collision_mask = 13
+physics_material_override = SubResource("PhysicsMaterial_28b0i")
+gravity_scale = 0.0
+lock_rotation = true
+script = ExtResource("1_j0g0q")
+playerColorRect = NodePath("ColorRect")
+playerIcon = NodePath("PlayerIcon")
+playerName = NodePath("Name")
+carriedMaterialSprite = NodePath("CarriedMaterial")
+arrowsContainer = NodePath("Arrows")
+arrows = [NodePath("Arrows/Arrow1"), NodePath("Arrows/Arrow2"), NodePath("Arrows/Arrow3"), NodePath("Arrows/Arrow4")]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = -13.0
+offset_top = -13.0
+offset_right = 13.0
+offset_bottom = 13.0
+color = Color(0.862745, 0.0784314, 0.235294, 1)
+
+[node name="PlayerIcon" type="Sprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_af5dq")
+region_enabled = true
+region_rect = Rect2(0, 0, 48, 48)
+
+[node name="Name" type="Label" parent="."]
+offset_left = -16.0
+offset_top = 11.0
+offset_right = 17.0
+offset_bottom = 20.0
+theme_override_font_sizes/font_size = 10
+text = "Append"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CarriedMaterial" type="Sprite2D" parent="."]
+visible = false
+scale = Vector2(2, 2)
+texture = ExtResource("3_xk04f")
+region_enabled = true
+region_rect = Rect2(0, 0, 12, 12)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_yrcwq")
+
+[node name="Arrows" type="Node2D" parent="."]
+visible = false
+position = Vector2(-24, -21)
+
+[node name="Arrow1" type="Sprite2D" parent="Arrows"]
+texture = ExtResource("4_rflv8")
+region_enabled = true
+region_rect = Rect2(0, 0, 16, 16)
+
+[node name="Arrow2" type="Sprite2D" parent="Arrows"]
+position = Vector2(16, 0)
+texture = ExtResource("4_rflv8")
+region_enabled = true
+region_rect = Rect2(0, 0, 16, 16)
+
+[node name="Arrow3" type="Sprite2D" parent="Arrows"]
+position = Vector2(32, 0)
+texture = ExtResource("4_rflv8")
+region_enabled = true
+region_rect = Rect2(0, 0, 16, 16)
+
+[node name="Arrow4" type="Sprite2D" parent="Arrows"]
+position = Vector2(48, 0)
+texture = ExtResource("4_rflv8")
+region_enabled = true
+region_rect = Rect2(0, 0, 16, 16)

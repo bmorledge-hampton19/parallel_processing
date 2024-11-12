@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://bqqr16bvtnhpb"]
+
+[ext_resource type="Script" path="res://scripts/on_the_road/RealTree.gd" id="1_bfkvn"]
+[ext_resource type="Texture2D" uid="uid://cktx38m6rl18v" path="res://images/tree.png" id="1_vx4ue"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_t7wtg"]
+size = Vector2(35, 59)
+
+[node name="Tree" type="Area2D" node_paths=PackedStringArray("sprite")]
+collision_layer = 2
+collision_mask = 0
+script = ExtResource("1_bfkvn")
+sprite = NodePath("Sprite2D")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.5, -1.5)
+shape = SubResource("RectangleShape2D_t7wtg")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_vx4ue")
+region_enabled = true
+region_rect = Rect2(0, 0, 64, 64)

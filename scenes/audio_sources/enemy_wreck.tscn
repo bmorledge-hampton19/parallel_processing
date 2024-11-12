@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://bfw3yngfswfwh"]
+
+[ext_resource type="AudioStream" uid="uid://cctspnlawyxfe" path="res://audio/SE/truck_crash.mp3" id="1_vce4f"]
+[ext_resource type="Script" path="res://scripts/on_the_road/gunshot.gd" id="2_dh1vq"]
+
+[node name="EnemyWreck" type="AudioStreamPlayer2D"]
+stream = ExtResource("1_vce4f")
+script = ExtResource("2_dh1vq")

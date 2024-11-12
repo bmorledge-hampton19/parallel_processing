@@ -1,0 +1,63 @@
+[gd_scene load_steps=3 format=3 uid="uid://d0di0ilt48umy"]
+
+[ext_resource type="Script" path="res://scripts/main_menu/Story.gd" id="1_rw10r"]
+[ext_resource type="Texture2D" uid="uid://2f3orp4ixv15" path="res://images/maker.png" id="2_sydkc"]
+
+[node name="Story" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_rw10r")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Maker" type="Sprite2D" parent="."]
+position = Vector2(482, 116)
+scale = Vector2(2, 2)
+texture = ExtResource("2_sydkc")
+region_enabled = true
+region_rect = Rect2(0, 0, 48, 48)
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 106.0
+offset_top = 12.0
+offset_right = 860.0
+offset_bottom = 114.0
+theme_override_font_sizes/font_size = 64
+text = "This is your Maker"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="."]
+layout_mode = 0
+offset_left = 13.0
+offset_top = 182.0
+offset_right = 945.0
+offset_bottom = 395.0
+theme_override_font_sizes/font_size = 32
+text = "He has been working tirelessly to create 16 robotic children (that's you!) to keep him company in his old age.
+
+However, just as he was putting the finishing touches on his children while driving home from cycling class, he was arrested for texting and driving.
+
+You don't know much about this strange world you've woken up in, but you know your father is in trouble, and has left a pretty sick ride for you. It's time to meet your maker!"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="Label3" type="Label" parent="."]
+layout_mode = 0
+offset_left = 427.0
+offset_top = 514.0
+offset_right = 952.0
+offset_bottom = 534.0
+theme_override_font_sizes/font_size = 24
+text = "Press Enter or Start to return to the main menu"

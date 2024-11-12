@@ -1,0 +1,34 @@
+[gd_scene load_steps=5 format=3 uid="uid://b2tnyevggs7b8"]
+
+[ext_resource type="Script" path="res://scripts/on_the_road/Bullet.gd" id="1_njnvd"]
+[ext_resource type="Shader" path="res://shaders/CircleMask.gdshader" id="2_00swh"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_870lk"]
+radius = 2.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_sa4n5"]
+shader = ExtResource("2_00swh")
+shader_parameter/circle_size = 0.5
+shader_parameter/size_ratio = 1.0
+shader_parameter/location_x = 0.5
+shader_parameter/location_y = 0.5
+shader_parameter/invert_mask = false
+
+[node name="Bullet" type="RigidBody2D" node_paths=PackedStringArray("colorRect")]
+collision_layer = 32
+collision_mask = 16
+gravity_scale = 0.0
+lock_rotation = true
+script = ExtResource("1_njnvd")
+colorRect = NodePath("ColorRect")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_870lk")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_sa4n5")
+offset_left = -2.0
+offset_top = -2.0
+offset_right = 2.0
+offset_bottom = 2.0
+color = Color(0, 0, 0, 1)

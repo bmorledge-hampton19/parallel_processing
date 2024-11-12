@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://dv6pe2qlpr1iv"]
+
+[ext_resource type="AudioStream" uid="uid://bpaq71miblf81" path="res://audio/SE/enemy_gunshot.mp3" id="1_1o0sq"]
+[ext_resource type="Script" path="res://scripts/on_the_road/gunshot.gd" id="2_3i8sv"]
+
+[node name="EnemyGunshot" type="AudioStreamPlayer2D"]
+stream = ExtResource("1_1o0sq")
+volume_db = 2.0
+script = ExtResource("2_3i8sv")
