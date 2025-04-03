@@ -83,7 +83,7 @@ func _ready():
 	# 	print(input.get_name())
 	for playerName in PlayerName.values():
 		isIconActive[playerName] = false
-	initTestPlayers()
+	# initTestPlayers()
 
 func _process(_delta):
 	pass

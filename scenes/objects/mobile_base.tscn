@@ -1335,7 +1335,7 @@ shape = SubResource("RectangleShape2D_jdx5o")
 [node name="Players" type="Node2D" parent="."]
 
 [node name="Garbage" type="Area2D" parent="."]
-position = Vector2(-1, 179)
+position = Vector2(-1, 184)
 script = ExtResource("20_mdar8")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Garbage"]

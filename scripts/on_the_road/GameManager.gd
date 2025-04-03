@@ -41,7 +41,7 @@ var openLeftTruckDestinations: Array[float]
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	for player in PlayerManager.playersByInputSet.values():
+	for player in PlayerManager.getActivePlayers():
 		mobileBase.addPlayerUI(player)
 	movement = Vector2(0,100)
 	for i in range(6):

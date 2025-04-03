@@ -7,8 +7,10 @@
 [node name="Main Menu" type="Control" node_paths=PackedStringArray("playerSelectorGrid", "playButton", "storyButton", "tutorialButton")]
 layout_mode = 3
 anchors_preset = 0
-offset_right = 960.0
-offset_bottom = 540.0
+offset_left = 1.0
+offset_top = 1.0
+offset_right = 961.0
+offset_bottom = 541.0
 script = ExtResource("1_o3hbs")
 playerSelectorPrefab = ExtResource("2_ig006")
 playerSelectorGrid = NodePath("PlayerSelectors")
